@@ -1,10 +1,31 @@
 import React from 'react'
 
-const Images = () => {
-    let imgs = ["https://picsum.photos/id/237/300/325", "https://picsum.photos/id/17/300/325", "https://picsum.photos/id/207/300/325"]
+
+const Images = ({ imgs }) => {
+
   return (
-    <div>Images</div>
+    <div className='container d-flex p-0 my-3'>
+      <div className="row">
+        {
+          imgs.map((el, i) => {
+
+            return (
+              <div className="col-md-3 col-sm-6 col-12" key={i}>
+                <div className="card" >
+                  <img src={el.src} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">{el.title}</h5>
+                    <p className="card-text">{el.description}</p>
+                    <a href="#" className="btn btn-primary">{el.label}</a>
+                  </div>
+                </div>
+              </div>
+            )
+          })
+        }
+      </div>
+    </div>
   )
 }
 
-export default Images
+export default Images;
